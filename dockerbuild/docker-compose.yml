@@ -1,0 +1,10 @@
+services:
+    hls4ml-kv260-testbench:
+        container_name: hls4ml-kv260-testbench
+        image: 'hls4ml-kv260-testbench:v2025.2'
+        volumes:
+            - './environments/:/work/environments/'
+            - '~/path/to/development/:/work/development/' # Adapt to your needs
+        ports:
+            - '8443:8443'
+        init: true # Needed for proper handling of Vivado-processes during synthesis
