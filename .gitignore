@@ -230,3 +230,4 @@ dockerbuild/*.tar.gz
 *.adb
 *.verbose.rpt
 #find . -size +50M | cat >> .gitignore # .gitignore large files which github doesn't accept
+onboard-verification/expo-demo/MNIST-live/mnist_nedlastet.keras
