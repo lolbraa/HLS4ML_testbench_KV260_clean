@@ -45,6 +45,8 @@ The [HLS4ML-tutorial](https://github.com/fastmachinelearning/hls4ml-tutorial) us
     part        = 'xck26-sfvc784-2LV-c'
 ```
 
+AXI Master accesses memory directly as an master on the AXI4-bus, while AXI Stream relies on a DMA bridge to feed/collect streamed data. In Vitis Unified, \texttt{in\_stream\_buf\_size} and \texttt{out\_stream\_buf\_size} set buffers before the first and after the last layer. The platform file is preconfigured for both AXI-arrangements, thus some resources of the wrapper may not be utilized depending on configuration.
+
 
 ### Prerequisite for synthesizing: Vitis and Vivado
 
