@@ -218,6 +218,8 @@ y_test*
 x_train*
 y_train*
 *.npy
+*.arff
+classes.npy
 
 
 # Vitis - for store filer for GitHub
