@@ -25,8 +25,8 @@ class NeuralNetworkOverlay(Overlay):
 
     def calculate_performance(self, N, execution_time):
         rate = N / execution_time if execution_time > 0 else float('inf')
-        print(
-            f"Processed elements: {N}, Execution time: {execution_time:.4f} seconds, Performance rate: {rate:.2f} inferences/second")
+        #print(
+        #    f"Processed elements: {N}, Execution time: {execution_time:.4f} seconds, Performance rate: {rate:.2f} inferences/second")
         return rate
 
 
@@ -92,7 +92,7 @@ class HLS4ML_IP(DefaultIP):
         self.dma = dma
 
     def set_amt_query(self, val):
-        print(f"amount of queries will be set to: {val} at address: {hex(self.REG_ADDR_BATCH_SIZE)}")
+        #print(f"amount of queries will be set to: {val} at address: {hex(self.REG_ADDR_BATCH_SIZE)}")
         self.write(self.REG_ADDR_BATCH_SIZE, val)
 
     def ctrl_start(self):
@@ -111,7 +111,7 @@ class HLS4ML_IP(DefaultIP):
 
         async def wait_for_acc():
             exec_time = 0
-            print("starting the accelerator")
+            #print("starting the accelerator")
             # Start receive (PL → PS)
             if profile:
                 t_start = time.perf_counter()
@@ -123,15 +123,15 @@ class HLS4ML_IP(DefaultIP):
             # Wait for complete
             await intr.wait()
 
-            # print porfile data
+            # #print porfile data
             if profile:
                 t_end = time.perf_counter()
                 exec_time = t_end - t_start
-                print(f"Accelerator execution time: \
-                      {(t_end - t_start) * 1e3:.3f} ms")
+                #print(f"Accelerator execution time: \
+                #      {(t_end - t_start) * 1e3:.3f} ms")
 
 
-            print("accelerator has finished")
+            #print("accelerator has finished")
             return exec_time if profile else None
 
         # get event loop from asyncio
